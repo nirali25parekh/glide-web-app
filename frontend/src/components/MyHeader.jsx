@@ -18,32 +18,39 @@ function MyHeader(props) {
   return (
     <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
       <div className="logo" />
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["0"]}>
+
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["5"]}>
         <Menu.Item key="0">
           <NavLink to="/home">Home</NavLink>
         </Menu.Item>
-        <Menu.Item key="3">
+
+        <Menu.Item key="1">
           <NavLink to="/about">About</NavLink>
         </Menu.Item>
 
-        
         {props.userData.userId || props.userData.token ? (
-          <Menu.Item key="1">
+          <Menu.Item key="2">
             <NavLink to="/tweets">Tweets</NavLink>
           </Menu.Item>
         ) : (
           <React.Fragment />
         )}
 
-
         {props.userData.userId || props.userData.token ? (
-          <Menu.Item key="2">
+          <Menu.Item key="3">
             <NavLink to="/reddit">Reddit</NavLink>
           </Menu.Item>
         ) : (
           <React.Fragment />
         )}
 
+        {props.userData.userId || props.userData.token ? (
+          <Menu.Item key="4">
+            <NavLink to="/videoindexer">Video Indexer</NavLink>
+          </Menu.Item>
+        ) : (
+          <React.Fragment />
+        )}
 
         {props.userData.userId || props.userData.token ? (
           <React.Fragment />

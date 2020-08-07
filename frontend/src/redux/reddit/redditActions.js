@@ -16,7 +16,7 @@ export const fetchReddits = (sector) => {
             dispatch(fetchRedditsSuccess(reddits))
         }
         catch (error) {
-            return dispatch(fetchRedditsFailure(error))
+            return dispatch(fetchRedditsFailure('Error in fetching reddits'))
         }
     }
 }

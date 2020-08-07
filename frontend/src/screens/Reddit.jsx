@@ -10,14 +10,11 @@ const { Header, Content, Footer } = Layout;
 
 export class Reddit extends Component {
   componentDidMount() {
-    // console.log(this.props.userData.sector)
     var query = "";
     for (let i = 0; i < this.props.userData.sector.length; i++) {
       query = query.concat(this.props.userData.sector[i], " ");
     }
     query = query.slice(0, -1);
-    // const query = "Technology Science"
-    // console.log('query', query)
     this.props.fetchReddits(query);
   }
 
