@@ -4,7 +4,7 @@ __pycache__/
 env/
 
 reddit_folder/__pycache__/
-reddit_folder/reddit-data.csv
+reddit_folder/reddit_data.csv
 twitter_folder/__pycache__/
 twitter_folder/twitter_kaggle_data.csv
 twitter_folder_2/__pycache__/
