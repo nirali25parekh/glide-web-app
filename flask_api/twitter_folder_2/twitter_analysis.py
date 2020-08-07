@@ -37,7 +37,7 @@ def findTweetsByKeywordAndFindSentiment(keyword):
     returnObject = []
     for result in results:
         tweet = result.full_text #tweet
-        cleaned_tweet = clean_tweet(results[0].full_text) #cleaned_tweet
+        cleaned_tweet = clean_tweet(result.full_text) #cleaned_tweet
         sentiment_of_tweet = get_tweet_sentiment(cleaned_tweet) #sentiment
         screen_name = result.user.screen_name     #user screen name
         name = result.user.name     #user name

@@ -15,10 +15,9 @@ class Routes extends React.Component {
   render() {
     return (
       <Switch>
-        {this.props.userData.token && <Redirect from="/" to="/home" exact />}
+        {this.props.userData.token && <Redirect from="/" to="/login" exact />}
 
          {/* public routes */}
-         <Route path="/about" component={About} />
         <Route path="/home" component={Home} />
 
          {/*  after logging in, token present */}
@@ -41,10 +40,11 @@ class Routes extends React.Component {
         )}
 
         {/* when token present only then access */}
+        {/* TODO: change this */}
         {this.props.userData.token && (
           <Route path="/tweets" component={Tweets} />
         )}
-        {!this.props.userData.token && (
+        {this.props.userData.token && (
           <Route path="/videoindexer" component={VideoIndexer} />
         )}
         {this.props.userData.token && (
@@ -60,9 +60,7 @@ class Routes extends React.Component {
         )}
 
        
-        
-       
-
+  
         {/* if any other url */}
         <Route component={NotFound} />
         <Redirect to="/404" />
