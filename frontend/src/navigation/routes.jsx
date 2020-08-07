@@ -2,7 +2,6 @@ import React from "react";
 import "../App.css";
 import { connect } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
-import About from "../screens/About";
 import Tweets from "../screens/Tweets";
 import Home from "../screens/Home";
 import NotFound from "../screens/NotFound";

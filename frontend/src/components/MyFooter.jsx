@@ -13,7 +13,7 @@ const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 function MyFooter(){
-    return(<Footer style={{ textAlign: 'center', marginTop: 100, }}>Glide - Created by Nirali</Footer>)
+    return(<Footer style={{ textAlign: 'center', marginTop: 0,  }}>Glide - Smart Market Research</Footer>)
 }
 
 export default MyFooter

@@ -106,42 +106,51 @@ export class Register extends Component {
           >
             <Checkbox.Group style={{ width: "100%" }} onChange={this.onChange}>
               <Row gutter={[24, 10]}>
-                <Col flex={1} span={6} style={{ textAlign: "left" }}>
+                <Col flex={1} span={12} style={{ textAlign: "left" }}>
                   <Checkbox value="Technology">Technology</Checkbox>
                 </Col>
-                <Col flex={1} span={6} style={{ textAlign: "left" }}>
+                <Col flex={1} span={12} style={{ textAlign: "left" }}>
                   <Checkbox value="Politics">Politics</Checkbox>
                 </Col>
-                <Col flex={1} span={6} style={{ textAlign: "left" }}>
+                </Row>
+
+                <Row gutter={[24, 10]}>
+                <Col flex={1} span={12} style={{ textAlign: "left" }}>
                   <Checkbox value="Entertainment">Entertainment</Checkbox>
                 </Col>
-                <Col flex={1} span={6} style={{ textAlign: "left" }}>
+                <Col flex={1} span={12} style={{ textAlign: "left" }}>
                   <Checkbox value="Fashion">Fashion</Checkbox>
                 </Col>
               </Row>
+
               <Row gutter={[24, 10]}>
-                <Col flex={1} span={6} style={{ textAlign: "left" }}>
+                <Col flex={1} span={12} style={{ textAlign: "left" }}>
                   <Checkbox value="Science">Science</Checkbox>
                 </Col>
 
-                <Col flex={1} span={6} style={{ textAlign: "left" }}>
+                <Col flex={1} span={12} style={{ textAlign: "left" }}>
                   <Checkbox value="Business">Business</Checkbox>
                 </Col>
-                <Col flex={1} span={6} style={{ textAlign: "left" }}>
+                </Row>
+
+                <Row gutter={[24, 10]}>
+                <Col flex={2} span={12} style={{ textAlign: "left" }}>
                   <Checkbox value="Finance">Finance</Checkbox>
                 </Col>
-                <Col flex={1} span={6} style={{ textAlign: "left" }}>
+                <Col flex={2} span={12} style={{ textAlign: "left" }}>
                   <Checkbox value="Health">Health</Checkbox>
                 </Col>
               </Row>
-              <Row>
-                <Col flex={1} span={6} style={{ textAlign: "left" }}>
+
+              <Row gutter={[24, 10]}>
+                <Col flex={1} span={12} style={{ textAlign: "left" }}>
                   <Checkbox value="Education">Education</Checkbox>
                 </Col>
-                <Col flex={1} span={6} style={{ textAlign: "left" }}>
+                <Col flex={1} span={12} style={{ textAlign: "left" }}>
                   <Checkbox value="International">International</Checkbox>
                 </Col>
               </Row>
+
             </Checkbox.Group>
           </Form.Item>
           {this.props.userData.loading ? (

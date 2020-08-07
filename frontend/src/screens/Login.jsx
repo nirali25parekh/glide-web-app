@@ -32,7 +32,7 @@ const tailLayout = {
 export class Login extends Component {
 
   onFinish = (values) => {
-    console.log('values', values)
+    // console.log('values', values)
     const { email, password} = values;
       this.props.loginUser(
         email,
@@ -49,7 +49,7 @@ export class Login extends Component {
     return (
       <Content
         className="site-layout"
-        style={{ padding: "0 50px", paddingTop: 64, minHeight: 400 }}
+        style={{ padding: "0 50px", paddingTop: 64, minHeight: 600 , alignItems:'center'}}
       >
         <Title>Login</Title>
 
