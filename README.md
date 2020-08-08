@@ -1,6 +1,6 @@
 # glide-web-app
 
- 1. Glide aims to create a clean, one-stop service to ensure that your product is marketed to the right audience
+ 1. Glide aims to create a clean, one-stop service to assist Content Creators to market the right product to the right audience
 in the exactly right way.  
  2. The user can describe his niche interests and we will find relevant realtime content from various social media sites along with sentiment analysis on global data.  
  3. Gain useful and practical insights from the video content using AI with out VideoIndexing tool.
