@@ -1,7 +1,7 @@
 import React from "react";
 import "../App.css";
 import { connect } from "react-redux";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect} from "react-router-dom";
 import Tweets from "../screens/Tweets";
 import Home from "../screens/Home";
 import NotFound from "../screens/NotFound";
@@ -14,54 +14,50 @@ class Routes extends React.Component {
   render() {
     return (
       <Switch>
-        {this.props.userData.token && <Redirect from="/" to="/login" exact />}
+        {/* if / , if logged in, then homepage else register */}
+        <Route exact path="/">
+          {this.props.userData.token ? (
+            <Redirect to="/home" />
+          ) : (
+            <Redirect to="/home" />
+          )}
+        </Route>
 
-         {/* public routes */}
-        <Route path="/home" component={Home} />
+        {/* route home => irrespective of logged in, always show Home Page */}
+        <Route path="/home" exact component={Home} />
 
-         {/*  after logging in, token present */}
-         {this.props.userData.token && (
-          <Redirect from="/login" to="/home" exact />
-        )}
-        {this.props.userData.token && (
-          <Redirect from="/register" to="/home" exact />
-        )}
+        {/* route login, if logged in=> Home else Login  */}
+        <Route path="/login" exact>
+          {this.props.userData.token ? <Redirect to="/tweets" /> : <Login />}
+        </Route>
 
-        {/* when token absent then redirect */}
-        {!this.props.userData.token && (
-          <Redirect from="/tweets" to="/login" exact />
-        )}
-        {!this.props.userData.token && (
-          <Redirect from="/videoindexer" to="/login" exact />
-        )}
-        {!this.props.userData.token && (
-          <Redirect from="/reddit" to="/login" exact />
-        )}
+        {/* route register, if logged in=> Home else register  */}
+        <Route path="/register" exact>
+          {this.props.userData.token ? <Redirect to="/tweets" /> : <Register />}
+        </Route>
 
-        {/* when token present only then access */}
-        {/* TODO: change this */}
-        {this.props.userData.token && (
-          <Route path="/tweets" component={Tweets} />
-        )}
-        {this.props.userData.token && (
-          <Route path="/videoindexer" component={VideoIndexer} />
-        )}
-        {this.props.userData.token && (
-          <Route path="/reddit" component={Reddit} />
-        )}
+            {/* route tweets, if logged in=> Tweets else login  */}
+        <Route path="/tweets" exact>
+          {this.props.userData.token ? <Tweets /> : <Redirect to="/login" />}
+        </Route>
 
-          {/* when token not present */}
-          {!this.props.userData.token && (
-          <Route path="/login" component={Login} />
-        )}
-        {!this.props.userData.token && (
-          <Route path="/register" component={Register} />
-        )}
+{/* route reddit, if logged in=> Reddit else login  */}
+        <Route path="/reddit" exact>
+          {this.props.userData.token ? <Reddit /> : <Redirect to="/login" />}
+        </Route>
 
-       
-  
-        {/* if any other url */}
-        <Route component={NotFound} />
+{/* route videoindexer, if logged in=> VideoIndexer else login  */}
+        <Route path="/videoindexer" exact>
+          {this.props.userData.token ? (
+            <VideoIndexer />
+          ) : (
+            <Redirect to="/login" />
+          )}
+        </Route>
+
+
+        {/* any other url */}
+        <Route component={NotFound}/>
         <Redirect to="/404" />
       </Switch>
     );

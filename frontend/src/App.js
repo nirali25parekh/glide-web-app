@@ -27,8 +27,11 @@ function App() {
       <Provider store = {store}>
         {/* routing wrapper */}
       <BrowserRouter>
+      {/* header all the pages */}
         <MyHeader />
+        {/* now routes in between -> acc to url content changes */}
         <Routes />
+        {/* footer all the pages */}
         <MyFooter />
       </BrowserRouter>
       </Provider>

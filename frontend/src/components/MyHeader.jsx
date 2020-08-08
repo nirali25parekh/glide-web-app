@@ -6,7 +6,7 @@ import {
   TeamOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import React from "react";
 import { connect } from "react-redux";
 import "../App.css";
@@ -26,14 +26,14 @@ function MyHeader(props) {
         src={logo}/>
         </div>
 
-
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["5"]}>
-        <Menu.Item key="0">
+    {console.log('here', props.location.pathname)}
+      <Menu theme="dark" mode="horizontal" selectedKeys={[props.location.pathname,]}>
+        <Menu.Item key={"/home"}>
           <NavLink to="/home">Home</NavLink>
         </Menu.Item>
 
         {props.userData.userId || props.userData.token ? (
-          <Menu.Item key="2">
+          <Menu.Item key={"/tweets"}>
             <NavLink to="/tweets">Tweets</NavLink>
           </Menu.Item>
         ) : (
@@ -41,7 +41,7 @@ function MyHeader(props) {
         )}
 
         {props.userData.userId || props.userData.token ? (
-          <Menu.Item key="3">
+          <Menu.Item key={"/reddit"}>
             <NavLink to="/reddit">Reddit</NavLink>
           </Menu.Item>
         ) : (
@@ -49,7 +49,7 @@ function MyHeader(props) {
         )}
 
         {props.userData.userId || props.userData.token ? (
-          <Menu.Item key="4">
+          <Menu.Item key={"/videoindexer"}>
             <NavLink to="/videoindexer">Video Indexer</NavLink>
           </Menu.Item>
         ) : (
@@ -59,8 +59,8 @@ function MyHeader(props) {
         {props.userData.userId || props.userData.token ? (
           <React.Fragment />
         ) : (
-          <Menu.Item key="5">
-            <NavLink to="/register">Authenticate</NavLink>
+          <Menu.Item key={"/login"}>
+            <NavLink to="/login">Authenticate</NavLink>
           </Menu.Item>
         )}
       </Menu>
@@ -74,4 +74,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(MyHeader);
+export default connect(mapStateToProps)(withRouter(MyHeader));
