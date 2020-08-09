@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const colors = require('colors')
 const dotenv = require('dotenv')
 const cors = require('cors');
+const path = require('path');
 
 // import routes
 const authRoute = require('./routes/auth')
@@ -11,8 +12,8 @@ const postRoute = require('./routes/post')
 
 dotenv.config()
 
-// connect to db
-mongoose.connect(process.env.DB_CONNECT,
+// connect to db  => STEP 2 deployment
+mongoose.connect(process.env.MONGODB_URI || process.env.DB_CONNECT,
 { useUnifiedTopology: true }, 
 ()=> console.log('Connected to database'.bgCyan))
 
@@ -26,4 +27,16 @@ app.use(cors());
 app.use('/api/user', authRoute)
 app.use('/api/posts', postRoute)
 
-app.listen(8000, ()=> console.log('Server running on port 8000'.bgMagenta))
+
+// step3: deployment
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('../frontend/build'))
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, '/frontend/build/index.html')) //relative path
+    })
+}
+
+
+
+const PORT = process.env.PORT || 8000 // step 1 deployment
+app.listen(PORT, ()=> console.log('Server running on port 8000'.bgMagenta))

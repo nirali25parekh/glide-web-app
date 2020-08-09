@@ -20,6 +20,7 @@ flask_api/video_indexer_folder/trial_videos/
 
 # for frontend
 frontend/node_modules/
+frontend/build/
 
 # for backend
 backend/node_modules/
