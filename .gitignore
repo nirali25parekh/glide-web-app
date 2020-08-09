@@ -1,27 +1,2 @@
 # for root
 .vscode/
-
-# for flask apis
-flask_api/config.py
-flask_api/__pycache__/
-flask_api/.vscode
-flask_api/env/
-
-flask_api/reddit_folder/__pycache__/
-flask_api/reddit_folder/reddit_data.csv
-flask_api/twitter_folder/__pycache__/
-flask_api/twitter_folder/twitter_kaggle_data.csv
-flask_api/twitter_folder_2/__pycache__/
-flask_api/video_indexer_folder/__pycache__/
-flask_api/video_indexer_folder/trial_videos/
-
-*.mp4
-*.csv
-
-# for frontend
-frontend/node_modules/
-frontend/build/
-
-# for backend
-backend/node_modules/
-backend/.env
