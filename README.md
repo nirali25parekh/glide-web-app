@@ -1,4 +1,4 @@
-# glide-web-app
+# Glide
 
  1. Glide aims to create a clean, one-stop service to assist Content Creators to market the right product to the right audience
 in the exactly right way.  
